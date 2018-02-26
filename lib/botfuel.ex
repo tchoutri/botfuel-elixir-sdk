@@ -3,7 +3,7 @@ defmodule Botfuel do
   Documentation for Botfuel.
   """
 
-  alias Botfuel.Entity
+  alias Botfuel.{Entity,Spellcheck,Classify}
 
   @doc "Creates a new client process with the provided API credentials"
   def new_client(credentials) do
@@ -29,9 +29,13 @@ defmodule Botfuel do
   * lang: the language to check. Must be either "FR" or "EN".
   * distance: the maximum authorized distance (1 or 2)
   """
-  @spec spellcheck(String.t, String.t, non_neg_integer) :: {:ok, Botfuel.Response.t} | {:error, atom()}
+  @spec spellcheck(String.t, String.t, non_neg_integer) :: {:ok, Entity.t} | {:error, atom()}
   def spellcheck(sentence, lang, distance \\ 2) do
-    GenServer.call(Botfuel.Client, {:spellcheck, %{sentence: sentence, key: "#{lang}_#{distance}"}})
+    GenServer.call(Botfuel.Client, {:spellcheck, %{"sentence" => sentence, key: "#{lang}_#{distance}"}})
   end
 
+  @spec classify(String.t) :: {:ok, [Classify.t]} | {:error, atom()}
+  def classify(sentence) do
+    GenServer.call(Botfuel.Client, {:classify, %{sentence: sentence}})
+  end
 end

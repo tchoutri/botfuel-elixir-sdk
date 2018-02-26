@@ -28,4 +28,14 @@ defmodule Botfuel.Request do
         {:error, :error}
     end
   end
+
+  def classify(params) do
+    url = "/qna/api/v1/bots/classify"
+    case post(url, params) do
+      %Tesla.Env{status: 200, body: body} -> {:ok, body}
+      error ->
+        Logger.error(inspect error)
+        {:error, :error}
+    end
+  end
 end

@@ -11,7 +11,7 @@ Feedback and contributions are of course welcome.
 
 * [x] Basic support for [entity extraction](https://docs.botfuel.io/api#nlp-entity-extraction)
 * [x] Basic support for [spellchecking](https://docs.botfuel.io/api#nlp-spell-checking)
-* [ ] Basic support for [QnA](https://docs.botfuel.io/api#qna)
+* [x] Basic support for [QnA](https://docs.botfuel.io/api#qna)
 
 => :tada: V0.1 :tada: <=
 

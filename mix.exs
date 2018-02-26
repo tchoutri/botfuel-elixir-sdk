@@ -35,6 +35,7 @@ defmodule Botfuel.MixProject do
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/tchoutri/botfuel-elixir-sdk"}
     ]
+  end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
