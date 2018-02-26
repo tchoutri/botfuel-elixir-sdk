@@ -13,6 +13,8 @@ Feedback and contributions are of course welcome.
 * [x] Basic support for [spellchecking](https://docs.botfuel.io/api#nlp-spell-checking)
 * [ ] Basic support for [QnA](https://docs.botfuel.io/api#qna)
 
+=> :tada: V0.1 :tada: <=
+
 ### Licence
 
 This software is licenced under the MIT licence.  
