@@ -7,7 +7,11 @@ defmodule Botfuel.MixProject do
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      description: description(),
+      package: package(),
+      deps: deps(),
+      name: "Botfuel",
+      source_url: "https://github.com/tchoutri/botfuel-elixir-sdk"
     ]
   end
 
@@ -19,11 +23,26 @@ defmodule Botfuel.MixProject do
     ]
   end
 
+  defp description() do
+    "An unofficial SDK for the Botfuel.io chatbot platform."
+  end
+
+  defp package() do
+    [
+      # These are the default files included in the package
+      files: ["lib", "mix.exs", "README*","LICENSE*"],
+      maintainers: ["Théophile Choutri"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/tchoutri/botfuel-elixir-sdk"}
+    ]
+
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:hackney, "~> 1.11.0"},
-      {:tesla, "~> 0.10.0"}
+      {:hackney, "~> 1.11"},
+      {:jason, "~> 1.0"},
+      {:recase, "~> 0.3"},
+      {:tesla, "~> 0.10"}
     ]
   end
 end
