@@ -7,7 +7,8 @@ defmodule Botfuel do
 
   @doc """
   Creates a new client process with the provided API `app_id` and `app_key` as a map.
-  The `Botfuel.Client` module can be started by hand in a supervision tree as well, without much more ceremony.
+
+  The `Botfuel.Client` module can be started by hand in a supervision tree as well, without much more ceremony.  
   API id and key retrieval are left to the user according to their method of choice (config.ex, environment variables, HashiCorp Vault, etc).
   """
   def new_client(credentials) do
@@ -16,8 +17,9 @@ defmodule Botfuel do
 
   @doc """
   Extract the entities of the provided sentence and parameters.
-  They must be packed in a `%Botfuel.Entity{}` struct. You can
-  learn more about what dimensions are authoriezd by checking the
+
+  They must be packed in a `%Botfuel.Entity{}` struct.  
+  You can learn more about what dimensions are authoriezd by checking the
   `Botfuel.Entity.dimension` type.
   """
   @spec extract_entity(Entity.t) :: {:ok, [Entity.Response.t]} | {:error, atom()}
@@ -27,8 +29,8 @@ defmodule Botfuel do
 
   @doc """
   Run the provided sentence through the spellchecking platform.
-  The accepted parameters are:
 
+  The accepted parameters are:
   * sentence: the sentence to be checked
   * lang: the language to check. Must be either "FR" or "EN".
   * distance: the maximum authorized distance (1 or 2)
