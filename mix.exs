@@ -40,7 +40,7 @@ defmodule Botfuel.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, "~> 0.18.3", only: :dev},
+      {:ex_doc, "~> 0.18", only: :dev},
       {:hackney, "~> 1.11"},
       {:jason, "~> 1.0"},
       {:recase, "~> 0.3"},

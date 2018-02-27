@@ -1,4 +1,5 @@
 defmodule Botfuel.Client do
+  @moduledoc false
 
   use GenServer
   require Logger

@@ -15,6 +15,7 @@ defmodule Botfuel.Spellcheck do
 
   @type correction :: map()
 
+  @doc false
   def normalize(map) do
     Enum.map(map, fn {k,v} ->
       v = cond do

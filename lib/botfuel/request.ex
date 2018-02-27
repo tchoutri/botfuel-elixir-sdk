@@ -1,4 +1,5 @@
 defmodule Botfuel.Request do
+  @moduledoc false
   require Logger
   use Tesla, docs: false, only: [:get, :post]
 
