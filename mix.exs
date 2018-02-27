@@ -33,7 +33,7 @@ defmodule Botfuel.MixProject do
       files: ["lib", "mix.exs", "README*","LICENSE*", "CoC.*"],
       maintainers: ["Théophile Choutri"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/tchoutri/botfuel-elixir-sdk"}
+      links: %{"GitHub" => "https://github.com/tchoutri/botfuel-elixir-sdk", "Code of Conduct" => "https://github.com/tchoutri/botfuel-elixir-sdk/blob/0.1.0/CoC.md"}
     ]
   end
 
