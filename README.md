@@ -3,6 +3,17 @@
 This is an (unofficial) Elixir SDK for the [Botfuel.io](https://app.botfuel.io/docs) NLP bot platform.
 Feedback and contributions are of course welcome.
 
+## Installation
+
+You can use `botfuel` directly from [Hex](https://hex.pm). Just add the corresponding line to your `mix.exs`:
+
+```Elixir
+def deps do
+  [
+    {:botfuel, "~> 0.1"}
+  ]
+end
+```
 
 ## Usage
 
@@ -12,15 +23,6 @@ You can start the `Botfuel.Client` module manually in your Supervision tree, or 
 iex(1)> Botfuel.new_client(%{app_id: app_id, app_key: app_key})
 {:ok, #PID<0.189.0>}
 ```
-
-
-## Roadmap
-
-* [x] Basic support for [entity extraction](https://docs.botfuel.io/api#nlp-entity-extraction)
-* [x] Basic support for [spellchecking](https://docs.botfuel.io/api#nlp-spell-checking)
-* [x] Basic support for [QnA](https://docs.botfuel.io/api#qna)
-
-:tada: V0.1 :tada:
 
 ## Licence
 
