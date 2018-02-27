@@ -20,6 +20,18 @@ defmodule Botfuel.Entity do
                    | :url | :item_count | :currency | :money | :color
 
 
+  def dimensions, do: MapSet.new [:street_number, :street_type, :postal, :city, :country, :address, :language,
+                                  :nationality, :email, :hashtag, :number, :ordinal, :time, :duration,
+                                  :distance, :area, :volume, :temperature, :forename, :family, :percentage,
+                                  :url, :item_count, :currency, :money, :color]
+
+  @spec purify(Botfuel.Entity.t, atom()) :: map()
+  def purify(params, field) do
+    {values, map} = Map.pop(params, field)
+    f_values = dimensions() |> MapSet.intersection(MapSet.new(values)) |> MapSet.to_list
+    Map.put(map, field, f_values)
+  end
+
   defmodule Response do
     defstruct [dim: "",
                body: "",

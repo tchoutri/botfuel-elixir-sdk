@@ -2,7 +2,8 @@ defmodule Botfuel.Client do
 
   use GenServer
   require Logger
-  alias Botfuel.{Entity,Spellcheck,Classify}
+  alias Botfuel.{Entity,Spellcheck,Classify,Request}
+  alias Botfuel.Entity.{Response}
 
   def start_link(state) do
     GenServer.start_link(__MODULE__, state, name: __MODULE__)
@@ -18,19 +19,22 @@ defmodule Botfuel.Client do
   end
 
   def handle_call({:extract, params}, _from, state) do
-    {:ok, result} = Botfuel.Request.extract(params)
-    result = Enum.map(result, fn r -> to_struct(Entity.Response, r) end)
+    {:ok, result} = params
+                    |> Entity.purify(:dimensions)
+                    |> Entity.purify(:antidimensions)
+                    |> Request.extract
+    result = Enum.map(result, fn r -> to_struct(Response, r) end)
     {:reply, result, state}
   end
 
   def handle_call({:spellcheck, params}, _from, state) do
-    {:ok, result} = Botfuel.Request.spellcheck(params)
+    {:ok, result} = Request.spellcheck(params)
     result = to_struct(Spellcheck, Spellcheck.normalize(result))
     {:reply, result, state}
   end
 
   def handle_call({:classify, params}, _from, state) do
-    {:ok, result} = Botfuel.Request.classify(params)
+    {:ok, result} = Request.classify(params)
     Logger.debug(inspect result)
     result = Enum.map(result, fn r -> to_struct(Classify, r) end)
     {:reply, result, state}

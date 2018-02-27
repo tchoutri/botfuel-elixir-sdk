@@ -3,7 +3,7 @@ defmodule Botfuel do
   Documentation for Botfuel.
   """
 
-  alias Botfuel.{Entity,Spellcheck,Classify}
+  alias Botfuel.{Entity,Classify}
 
   @doc "Creates a new client process with the provided API credentials"
   def new_client(credentials) do
