@@ -5,7 +5,11 @@ defmodule Botfuel do
 
   alias Botfuel.{Entity,Classify}
 
-  @doc "Creates a new client process with the provided API credentials"
+  @doc """
+  Creates a new client process with the provided API `app_id` and `app_key` as a map.
+  The `Botfuel.Client` module can be started by hand in a supervision tree as well, without much more ceremony.
+  API id and key retrieval are left to the user according to their method of choice (config.ex, environment variables, HashiCorp Vault, etc).
+  """
   def new_client(credentials) do
     Botfuel.Client.start_link(credentials)
   end
