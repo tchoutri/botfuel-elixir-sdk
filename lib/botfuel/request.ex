@@ -9,7 +9,6 @@ defmodule Botfuel.Request do
 
   plug Tesla.Middleware.JSON, engine: Jason
   plug Tesla.Middleware.BaseUrl, "https://api.botfuel.io"
-  plug Tesla.Middleware.DebugLogger
 
   def extract(params) do
     url = "/nlp/entity-extraction"
