@@ -24,13 +24,13 @@ defmodule Botfuel.MixProject do
   end
 
   defp description() do
-    "An unofficial SDK for the Botfuel.io chatbot platform."
+    "An Elixir SDK for the Botfuel.io chatbot platform."
   end
 
   defp package() do
     [
       # These are the default files included in the package
-      files: ["lib", "mix.exs", "README*","LICENSE*"],
+      files: ["lib", "mix.exs", "README*","LICENSE*", "CoC.*"],
       maintainers: ["Théophile Choutri"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/tchoutri/botfuel-elixir-sdk"}
@@ -40,6 +40,7 @@ defmodule Botfuel.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ex_doc, "~> 0.18.3", only: :dev},
       {:hackney, "~> 1.11"},
       {:jason, "~> 1.0"},
       {:recase, "~> 0.3"},

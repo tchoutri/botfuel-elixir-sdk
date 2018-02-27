@@ -1,6 +1,6 @@
 defmodule Botfuel do
   @moduledoc """
-  Documentation for Botfuel.
+  Documentation for the Botfuel main module.
   """
 
   alias Botfuel.{Entity,Classify}
@@ -34,6 +34,9 @@ defmodule Botfuel do
     GenServer.call(Botfuel.Client, {:spellcheck, %{"sentence" => sentence, key: "#{lang}_#{distance}"}})
   end
 
+  @doc """
+  Send the question to the bot platform and return all answers that match it.
+  """
   @spec classify(String.t) :: {:ok, [Classify.t]} | {:error, atom()}
   def classify(sentence) do
     GenServer.call(Botfuel.Client, {:classify, %{sentence: sentence}})
