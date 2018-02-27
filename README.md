@@ -24,6 +24,14 @@ iex(1)> Botfuel.new_client(%{app_id: app_id, app_key: app_key})
 {:ok, #PID<0.189.0>}
 ```
 
+Moreover, the top-level module exports 3 functions to interact with the platform:
+
+* `extract_entity/1`
+* `spellcheck/3`
+* `classify/1`
+
+[Read the docs ;)](https://hexdocs.pm/botfuel)
+
 ## Licence
 
 This software is licenced under the MIT licence.  
