@@ -15,7 +15,8 @@ defmodule Botfuel.Request do
     params = params_to_list(params)
     Logger.debug(inspect params)
     case get(url, query: params) do
-      %Tesla.Env{status: 200, body: body} -> {:ok, body}
+      %Tesla.Env{status: 200, body: body} -> 
+        {:ok, body}
       error ->
         Logger.error(inspect error)
         {:error, error}
@@ -25,7 +26,8 @@ defmodule Botfuel.Request do
   def spellcheck(params) do
     url = "/nlp/spellchecking"
     case get(url, query: Map.to_list(params)) do
-      %Tesla.Env{status: 200, body: body} -> {:ok, body}
+      %Tesla.Env{status: 200, body: body} ->
+        {:ok, body}
       error -> 
         Logger.error(inspect error)
         {:error, error}
@@ -35,7 +37,8 @@ defmodule Botfuel.Request do
   def classify(params) do
     url = "/qna/api/v1/bots/classify"
     case post(url, params) do
-      %Tesla.Env{status: 200, body: body} -> {:ok, body}
+      %Tesla.Env{status: 200, body: body} ->
+        {:ok, body}
       error ->
         Logger.error(inspect error)
         {:error, error}

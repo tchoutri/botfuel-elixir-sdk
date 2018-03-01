@@ -29,15 +29,18 @@ defmodule Botfuel.Client do
   end
 
   def handle_call({:spellcheck, params}, _from, state) do
-    {:ok, result} = Request.spellcheck(params)
-    result = to_struct(Spellcheck, Spellcheck.normalize(result))
+    result = case Request.spellcheck(params) do
+              {:ok, result} -> {:ok, to_struct(Spellcheck, Spellcheck.normalize(result))}
+              {:error, error} -> {:error, error}
+    end
     {:reply, result, state}
   end
 
   def handle_call({:classify, params}, _from, state) do
-    {:ok, result} = Request.classify(params)
-    Logger.debug(inspect result)
-    result = Enum.map(result, fn r -> to_struct(Classify, r) end)
+    result = case Request.classify(params) do
+      {:ok, result} -> Enum.map(result, fn r -> to_struct(Classify, r) end)
+      {:error, error} -> {:error, error}
+    end
     {:reply, result, state}
   end
 
