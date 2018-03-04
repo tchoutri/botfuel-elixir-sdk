@@ -3,7 +3,7 @@ defmodule Botfuel do
   Documentation for the Botfuel main module.
   """
 
-  alias Botfuel.{Entity,Classify,Spellcheck}
+  alias Botfuel.{Entity,Classify,Spellcheck,Botmeter}
 
   @doc """
   Creates a new client process with the provided API `app_id` and `app_key` as a map.
@@ -46,5 +46,14 @@ defmodule Botfuel do
   @spec classify(String.t) :: {:ok, [Classify.t]} | {:error, atom()}
   def classify(sentence) do
     GenServer.call(Botfuel.Client, {:classify, %{sentence: sentence}})
+  end
+
+  @doc """
+  Send metrics about your bot to the Botmeter endpoint for further visualization.
+  The function accepts a `%Botfuel.Botmeter{}` struct that holds the information.
+  """
+  @spec botmeter(Botmeter.t) :: {:ok, String.t} | {:error, atom()}
+  def botmeter(%Botmeter{}=params) do
+    GenServer.call(Botfuel.Client, {:botmeter, params})
   end
 end

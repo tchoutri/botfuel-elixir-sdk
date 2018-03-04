@@ -38,7 +38,15 @@ defmodule Botfuel.Client do
 
   def handle_call({:classify, params}, _from, state) do
     result = case Request.classify(params) do
-      {:ok, result} -> {:ok, Enum.map(result, fn r -> to_struct(Classify, r) end)}
+      {:ok, results}  -> {:ok, Enum.map(results, fn r -> to_struct(Classify, r) end)}
+      {:error, error} -> {:error, error}
+    end
+    {:reply, result, state}
+  end
+
+  def handle_call({:botmeter, params}, _from, state) do
+    result = case Request.botmeter(params) do
+      {:ok, results}  -> {:ok, results}
       {:error, error} -> {:error, error}
     end
     {:reply, result, state}

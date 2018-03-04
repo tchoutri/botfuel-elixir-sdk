@@ -32,6 +32,9 @@ Moreover, the top-level module exports 3 functions to interact with the platform
 
 [Read the docs ;)](https://hexdocs.pm/botfuel)
 
+I want to take great care of the documentation, but everyone's different so don't hesitate and reach to me if you feel it could be improved!  
+Thanks :heart:
+
 ## Licence
 
 This software is licenced under the MIT licence.  

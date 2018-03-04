@@ -45,6 +45,17 @@ defmodule Botfuel.Request do
     end
   end
 
+  def botmeter(params) do
+    url = "/botmeter"
+    case post(url, params) do
+      %Tesla.Env{status: 200, body: body} ->
+        {:ok, body}
+      error ->
+        Logger.error(inspect error)
+        {:error, error}
+    end
+  end
+
   defp params_to_list(params) when is_map(params) do
     params
     |> Map.delete(:__struct__)
