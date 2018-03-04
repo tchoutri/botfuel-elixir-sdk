@@ -17,7 +17,32 @@ end
 
 ## Usage
 
-You can start the `Botfuel.Client` module manually in your Supervision tree, or use `Botfuel.new_client(%{app_id: <your app ID>, app_key: <your app key>})`.
+You can start the `Botfuel.Client` module manually in your Supervision tree, like that:
+
+```Elixir
+defmodule Application do
+  # See https://hexdocs.pm/elixir/Application.html
+  # for more information on OTP Applications
+  @moduledoc false
+
+  use Application
+
+  def start(_type, _args) do
+    {app_id = System.get_env("BTFL_APPID"), app_key = System.get_env("BTFL_APPKEY")}
+
+    children = [
+      {Botfuel.Client, %{app_id: app_id, app_key: app_key}}
+    ]
+
+    # See https://hexdocs.pm/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: Gazoline.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+end
+```
+
+or use `Botfuel.new_client(%{app_id: <your app ID>, app_key: <your app key>})`.
 
 ```Elixir
 iex(1)> Botfuel.new_client(%{app_id: app_id, app_key: app_key})
