@@ -15,6 +15,16 @@ def deps do
 end
 ```
 
+Or (recommended)
+
+```Elixir
+def deps do
+  [
+    {:botfuel, github: "tchoutri/botfuel-elixir-sdk"}
+  ]
+end
+```
+
 ## Usage
 
 You can start the `Botfuel.Client` module manually in your Supervision tree, like that:
