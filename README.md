@@ -1,5 +1,7 @@
 # Botfuel ![Made in Elixir](https://cdn.rawgit.com/tchoutri/botfuel-elixir-sdk/master/elixir.svg) ![Hex.pm](https://img.shields.io/hexpm/v/botfuel.svg) ![Hex.pm](https://img.shields.io/hexpm/l/botfuel.svg)
 
+WARNING: This project is not actively maintained. I'll accept PRs but don't except the library to follow the API changes.
+
 This is an (unofficial) Elixir SDK for the [Botfuel.io](https://app.botfuel.io/docs) NLP bot platform.
 Feedback and contributions are of course welcome.
 
